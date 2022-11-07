@@ -1,0 +1,49 @@
+﻿@model WebAppEmployeeDb.Data.Models.Employee
+
+<form asp-action="EmployeeCreate">
+    <br />
+    <div class="container border p-3">
+        <h1 class=text-black>Create Post</h1>
+
+        <hr />
+        <div class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-2">
+                <label asp-for="Name" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Birthday" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <textarea asp-for="Birthday" class="form-control"></textarea>
+                <span asp-validation-for="Birthday" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="JobTitle" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="JobTitle" class="form-control" />
+                <span asp-validation-for="JobTitle" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Subdivision" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Subdivision" class="form-control" />
+                <span asp-validation-for="Subdivision" class="text-danger"></span>
+            </div>
+
+            <div class="col-5 offset-2">
+                <a asp-action="EmployeeIndex" class="btn-dark btn form-control">Back to list</a>
+            </div>
+
+            <div class="col 5">
+                <input type="submit" value="Create" class="btn btn-success form-control" />
+            </div>
+        </div>
+    </div>
+</form>
