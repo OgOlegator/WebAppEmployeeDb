@@ -42,7 +42,70 @@ namespace WebAppEmployeeDb.UI.Controllers
                 await _repository.CreateUpdate(model);
             }
 
+            return View(new Employee());
+        }
+
+        public async Task<IActionResult> EmployeeDelete(int id)
+        {
+            try
+            {
+                var employee = await _repository.GetById(id);
+
+                if (employee == null) 
+                    return NotFound();
+
+                return View(employee);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EmployeeDelete(Employee model)
+        {
+            var result = await _repository.Delete(model.Id);
+
+            if (!result)
+                View(model);
+
+            return RedirectToAction(nameof(EmployeeIndex));
+        }
+
+        public async Task<IActionResult> EmployeeEdit(int id)
+        {
+            var employee = await _repository.GetById(id);
+
+            if (employee == null)
+                return NotFound();
+            
+            return View(employee);    
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EmployeeEdit(Employee model)
+        {
+            if (ModelState.IsValid)
+            {
+                var employee = await _repository.CreateUpdate(model);
+
+                if (employee != null)
+                    return RedirectToAction(nameof(EmployeeIndex));
+            }
+
             return View(model);
+        }
+
+        public async Task<IActionResult> EmployeeDetails(int id)
+        {
+            var employee = await _repository.GetById(id);
+
+            if (employee == null)
+                return NotFound();
+
+            return View(employee);
         }
     }
 }

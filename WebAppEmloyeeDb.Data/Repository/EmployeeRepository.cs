@@ -22,8 +22,9 @@ namespace WebAppEmployeeDb.Data.Repository
         {
             if(employee.Id > 0)
             {
-                var changeEmployee = _db.Employees.FirstOrDefault(change => change.Id == employee.Id);
-                changeEmployee = employee;
+                //var changeEmployee = _db.Employees.FirstOrDefault(change => change.Id == employee.Id);
+                //changeEmployee = employee;
+                _db.Employees.Update(employee);
             }
             else
             {

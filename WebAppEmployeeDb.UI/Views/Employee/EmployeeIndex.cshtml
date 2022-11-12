@@ -54,9 +54,9 @@
                     @Html.DisplayFor(modelItem => employee.Subdivision)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@employee.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@employee.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@employee.Id">Delete</a>
+                    <a asp-action="EmployeeEdit" asp-route-id="@employee.Id">Edit</a> |
+                    <a asp-action="EmployeeDetails" asp-route-id="@employee.Id">Details</a> |
+                    <a asp-action="EmployeeDelete" asp-route-id="@employee.Id">Delete</a>
                 </td>
             </tr>
         }
