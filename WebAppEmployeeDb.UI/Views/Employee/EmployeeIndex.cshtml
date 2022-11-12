@@ -5,19 +5,19 @@
 }
 
 <p>
-    <div class="col text-md-end pt-1">
-        <a asp-action="EmployeeCreate" class="btn btn-outline-dark">Create New</a>
-    </div>
+    <form asp-controller="Employee" asp-action="EmployeeIndex">
+            Имя:        <input type="text" name="searchName" />
+            Должность:    <input type="text" name="searchJobTitle" />
+            Подразделение: <input type="text" name="searchSubdivision" />
+            <input type="submit" value="Найти" />
+    </form>
 </p>
 
-<form asp-controller="Employee" asp-action="EmployeeIndex">
-    <p>
-        Name:        <input type="text" name="searchName" />
-        JobTitle:    <input type="text" name="searchJobTitle" />
-        Subdivision: <input type="text" name="searchSubdivision" />
-        <input type="submit" value="Filter" />
-    </p>
-</form>
+<p>
+    <div class="col text-md-center pt-1">
+        <a asp-action="EmployeeCreate" class="btn btn-outline-dark">Добавить сотрудника</a>
+    </div>
+</p>
 
 <table class="table">
     <thead>
